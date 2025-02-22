@@ -51,7 +51,7 @@ export const Home = () => {
   const services = [
     {
       title: 'Luxury Car Rentals',
-      image: 'public/brock-wegner-pWGUMQSWBwI-unsplash.jpg',
+      image: '/brock-wegner-pWGUMQSWBwI-unsplash.jpg',
       desc: 'Premium vehicles with chauffeur services',
       link: '/services/car-rental'
     },
@@ -152,9 +152,9 @@ export const Home = () => {
           className="h-full w-full"
         >
           {[
-            'public/shifaaz-shamoon-qtbV_8P_Ksk-unsplash.jpg',
-            'public/samuel-scrimshaw-x8zEeH7euQI-unsplash.jpg',
-            'public/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpgg'
+            '/shifaaz-shamoon-qtbV_8P_Ksk-unsplash.jpg',
+            '/samuel-scrimshaw-x8zEeH7euQI-unsplash.jpg',
+            '/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg'
           ].map((img, index) => (
             <SwiperSlide key={index}>
               <div className="relative h-full w-full overflow-hidden">

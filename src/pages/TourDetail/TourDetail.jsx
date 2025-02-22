@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Layout } from "../layout/Layout";
+import axios from "axios";
 import { sampleTours } from "../../utils/tourPackeges";
 
 const TourDetail = () => {
@@ -9,12 +10,46 @@ const TourDetail = () => {
   const [openDays, setOpenDays] = useState({});
   const [formData, setFormData] = useState({
     name: "",
+    description: "",
+    departureDate: "",
+    days: "",
     email: "",
     mobile: "",
-    departureDate: "",
-    numDays: "",
-    message: "",
+    countryCode: "+91",
   });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validation: Check if required fields are filled
+    if (!formData.name || !formData.email || !formData.mobile) {
+      alert("Please fill all required fields (Name, Email, Mobile No.).");
+      return;
+    }
+
+    try {
+      await axios.post("https://backend-nine-mauve-86.vercel.app/tour_register",formData);
+      alert("Enquiry submitted successfully!");
+
+      // Reset form after successful submission 
+      setFormData({
+        name: "",
+        description: "",
+        departureDate: "",
+        days: "",
+        email: "",
+        mobile: "",
+        countryCode: "+91",
+      });
+
+    } catch (error) {
+      alert("Failed to submit enquiry. Please try again.");
+    }
+  };
 
   const handleToggleDay = (dayKey) => {
     setOpenDays((prev) => ({
@@ -23,14 +58,7 @@ const TourDetail = () => {
     }));
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted:", formData);
-  };
 
   if (!tour) {
     return (
@@ -95,97 +123,104 @@ const TourDetail = () => {
               Fill Enquiry Form Below
             </div>
             <div className="bg-gray-100 p-6 rounded-b-lg shadow-md">
-              <form onSubmit={handleSubmit}>
-                {/* Full Name */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">Your Full Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-500"
-                    required
-                  />
-                </div>
+            <form className="mt-4" onSubmit={handleSubmit}>
+      {/* Full Name */}
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Your Full Name</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Enter Name"
+          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+        />
+      </div>
 
-                {/* Email ID */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">Email ID</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-500"
-                    required
-                  />
-                </div>
+      {/* Tour Description */}
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Tour Description</label>
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="I am interested in . Please get in contact with me."
+          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          rows="3"
+        />
+      </div>
 
-                {/* Mobile Number */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">Mobile No.</label>
-                  <input
-                    type="text"
-                    name="mobile"
-                    placeholder="Mobile No"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-500"
-                    required
-                  />
-                </div>
+      {/* Departure Date & Number of Days */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-gray-700 font-medium">Departure Date</label>
+          <input
+            type="date"
+            name="departureDate"
+            value={formData.departureDate}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700 font-medium">Number of Days</label>
+          <input
+            type="number"
+            name="days"
+            value={formData.days}
+            onChange={handleChange}
+            placeholder="Number of Days"
+            className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+      </div>
 
-                {/* Departure Date & Number of Days */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-gray-700 font-medium">Departure Date</label>
-                    <input
-                      type="date"
-                      name="departureDate"
-                      value={formData.departureDate}
-                      onChange={handleChange}
-                      className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-medium">Number of Days</label>
-                    <input
-                      type="number"
-                      name="numDays"
-                      placeholder="Number of Days"
-                      value={formData.numDays}
-                      onChange={handleChange}
-                      className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-500"
-                      required
-                    />
-                  </div>
-                </div>
+      {/* Email ID */}
+      <div className="mt-4">
+        <label className="block text-gray-700 font-medium">Email ID</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+        />
+      </div>
 
-                {/* Message */}
-                <div className="mt-4">
-                  <label className="block text-gray-700 font-medium">Your Message</label>
-                  <textarea
-                    name="message"
-                    placeholder="I am interested in this tour. Please get in contact with me."
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-500"
-                    rows="3"
-                    required
-                  />
-                </div>
+      {/* Mobile Number */}
+      <div className="mt-4">
+        <label className="block text-gray-700 font-medium">Mobile No.</label>
+        <div className="flex">
+          <select
+            name="countryCode"
+            value={formData.countryCode}
+            onChange={handleChange}
+            className="border p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          >
+            <option>+91</option>
+            <option>+1</option>
+            <option>+44</option>
+            <option>+61</option>
+          </select>
+          <input
+            type="text"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            placeholder="Mobile No"
+            className="w-full border p-2 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+      </div>
 
-                {/* Submit Button */}
-                <div className="mt-6">
-                  <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg font-medium hover:bg-orange-700 transition">
-                    Send Enquiry
-                  </button>
-                </div>
-              </form>
+      {/* Submit Button */}
+      <div className="mt-6">
+        <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg font-medium hover:bg-orange-700 transition">
+          Send Enquiry
+        </button>
+      </div>
+    </form>
             </div>
           </div>
         </div>

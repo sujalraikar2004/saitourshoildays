@@ -2,8 +2,56 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { sampleTours } from "../../utils/tourPackeges";
 import { Layout } from "../layout/Layout";
-
+import axios from "axios"; // Import axios for API request
 const TourPackages = () => {
+
+
+ 
+
+
+
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    departureDate: "",
+    days: "",
+    email: "",
+    mobile: "",
+    countryCode: "+91",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validation: Check if required fields are filled
+    if (!formData.name || !formData.email || !formData.mobile) {
+      alert("Please fill all required fields (Name, Email, Mobile No.).");
+      return;
+    }
+
+    try {
+      await axios.post("https://backend-nine-mauve-86.vercel.app/tour_register",formData);
+      alert("Enquiry submitted successfully!");
+
+      // Reset form after successful submiss"ion
+      setFormData({
+        name: "",
+        description: "",
+        departureDate: "",
+        days: "",
+        email: "",
+        mobile: "",
+        countryCode: "+91",
+      });
+
+    } catch (error) {
+      alert("Failed to submit enquiry. Please try again.");
+    }
+  };
   const [currentPage, setCurrentPage] = useState(1);
   const toursPerPage = 5;
   const [popup, setPopup] = useState(false);
@@ -105,78 +153,104 @@ const TourPackages = () => {
             </div>
 
         
-            <form className="mt-4">
-       
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium">Your Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter Name"
-                  className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
-              </div>
+            <form className="mt-4" onSubmit={handleSubmit}>
+      {/* Full Name */}
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Your Full Name</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Enter Name"
+          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+        />
+      </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium">Tour Description</label>
-                <textarea
-                  placeholder="I am interested in . Please get in contact with me."
-                  className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  rows="3"
-                />
-              </div>
+      {/* Tour Description */}
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium">Tour Description</label>
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="I am interested in . Please get in contact with me."
+          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          rows="3"
+        />
+      </div>
 
-        
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-gray-700 font-medium">Departure Date</label>
-                  <input
-                    type="date"
-                    className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700 font-medium">Number of Days</label>
-                  <input
-                    type="number"
-                    placeholder="Number of Days"
-                    className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
-                </div>
-              </div>
+      {/* Departure Date & Number of Days */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-gray-700 font-medium">Departure Date</label>
+          <input
+            type="date"
+            name="departureDate"
+            value={formData.departureDate}
+            onChange={handleChange}
+            className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700 font-medium">Number of Days</label>
+          <input
+            type="number"
+            name="days"
+            value={formData.days}
+            onChange={handleChange}
+            placeholder="Number of Days"
+            className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+      </div>
 
-              <div className="mt-4">
-                <label className="block text-gray-700 font-medium">Email ID</label>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
-              </div>
+      {/* Email ID */}
+      <div className="mt-4">
+        <label className="block text-gray-700 font-medium">Email ID</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+        />
+      </div>
 
-     
-              <div className="mt-4">
-                <label className="block text-gray-700 font-medium">Mobile No.</label>
-                <div className="flex">
-                  <select className="border p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    <option>+91</option>
-                    <option>+1</option>
-                    <option>+44</option>
-                    <option>+61</option>
-                  </select>
-                  <input
-                    type="text"
-                    placeholder="Mobile No"
-                    className="w-full border p-2 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  />
-                </div>
-              </div>
+      {/* Mobile Number */}
+      <div className="mt-4">
+        <label className="block text-gray-700 font-medium">Mobile No.</label>
+        <div className="flex">
+          <select
+            name="countryCode"
+            value={formData.countryCode}
+            onChange={handleChange}
+            className="border p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          >
+            <option>+91</option>
+            <option>+1</option>
+            <option>+44</option>
+            <option>+61</option>
+          </select>
+          <input
+            type="text"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            placeholder="Mobile No"
+            className="w-full border p-2 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+      </div>
 
-              <div className="mt-6">
-                <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg font-medium hover:bg-orange-700 transition">
-                  Send Enquiry
-                </button>
-              </div>
-            </form>
+      {/* Submit Button */}
+      <div className="mt-6">
+        <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg font-medium hover:bg-orange-700 transition">
+          Send Enquiry
+        </button>
+      </div>
+    </form>
           </div>
         </div>
       )}
