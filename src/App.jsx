@@ -5,7 +5,7 @@ import './App.css'
 import { Home } from './pages/Home/Home'
 import { About } from './pages/About/About.jsx'
 import { Contact } from './pages/Contact/Contact'
-import { TourPackages } from './pages/TourPackages/TourPackages'
+import TourPackages from './pages/TourPackages/TourPackages.jsx'
 import { TourOperators } from './pages/Services/TourOperators'
 import { AirlineTicketing } from './pages/Services/AirlineTicketing'
 import { HotelBooking } from './pages/Services/HotelBooking'
@@ -13,6 +13,7 @@ import { CarRental } from './pages/Services/CarRental'
 import { EventOrganizer } from './pages/Services/EventOrganizer'
 import { TravelInsurance } from './pages/Services/TravelInsurance'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import TourDetail from './pages/TourDetail/TourDetail.jsx'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/car-rental" element={<CarRental />} />
           <Route path="/event-organizer" element={<EventOrganizer />} />
           <Route path="/travel-insurance" element={<TravelInsurance />} />
+          <Route path="/detail/:packageId"   element={<TourDetail/>}/>
         </Routes>
       </BrowserRouter>
     </div>
