@@ -6,7 +6,7 @@
         "image":"/AdobeStock_444736935_Preview.jpeg",
         "duration": "6 Nights / 7 Days",
         "category":"domestic",
-        "destination": ["Srinagar", "Pahalgam", "Gulmarg", "Sonamarg"],
+        "destination": ["Srinagar", "Pahalgam", "Gulmarg", "Sonamarg","Srinagar"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
         "overview": {
@@ -74,48 +74,9 @@
           "day_9": "Dalhousie - Chandigarh: Final transfer to departure city"
         }
       },
+      
       {
         "package_id": "003",
-        "name": "Ooty - Cochin Package - 7 Nights / 8 Days",
-        "duration": "7 Nights / 8 Days",
-        "image" :"public/ranjini-hemanth-KljpahUzp9U-unsplash.jpg",
-        "category":"domestic",
-        "destination": [
-          "Ooty", "Kodaikanal", "Munnar", "Kochi",
-          "Botanical Garden", "Doddabetta Peak", "Kodaikanal Lake",
-          "Ooty Lake", "Jewish Synagogue", "St. Francis Church", "Dutch Palace"
-        ],
-        "tour_activities": ["Hill Stations & Valleys"],
-        "price": "On Request",
-        "overview": {
-          "exclusions": [
-            "Meals other than specified",
-            "Airfare/Transport costs",
-            "Personal expenses",
-            "Boating/fishing charges",
-            "Optional activities"
-          ],
-          "additional_conditions": [
-            "Advance payment required",
-            "Refunds with retention deductions",
-            "Cancellation policy varies",
-            "Transport paid upfront",
-            "Meal plan options available"
-          ]
-        },
-        "itinerary": {
-          "day_1": "Coimbatore - Ooty: Transfer with sightseeing",
-          "day_2": "Ooty Exploration: Tea gardens and viewpoints",
-          "day_3": "Ooty - Kodaikanal: Palani Temples transfer",
-          "day_4": "Kodaikanal: Lake activities and natural wonders",
-          "day_5": "Scenic drive to Munnar through plantations",
-          "day_6": "Munnar wildlife and heritage sites",
-          "day_7": "Cochin cultural and historical tour",
-          "day_8": "Departure formalities"
-        }
-      },
-      {
-        "package_id": "004",
         "name": "Uttarakhand Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
         "image":"/avi-theret-2u6eLolV1JY-unsplash.jpg",
@@ -153,7 +114,7 @@
         }
       },
       {
-        "package_id": "005",
+        "package_id": "004",
         "name": "Go Kerala Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
         "image":"public/nature-photographer-29ezCWtMtnM-unsplash.jpg",
@@ -187,7 +148,7 @@
         }
       },
       {
-        "package_id": "006",
+        "package_id": "005",
         "name": "Darjeeling Glimpse of Eastern Himachal Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
         "image":"/praneet-kumar-H8dcf-v98mA-unsplash.jpg",
@@ -222,6 +183,46 @@
           "day_3": "Monastery tours and transfer",
           "day_4": "Hill station exploration",
           "day_5": "Sunrise views and cultural sites"
+        }
+      },
+      {
+        "package_id": "006",
+        "name": "Ooty - Cochin Package - 7 Nights / 8 Days",
+        "duration": "7 Nights / 8 Days",
+        "image" :"public/ranjini-hemanth-KljpahUzp9U-unsplash.jpg",
+        "category":"domestic",
+        "destination": [
+          "Ooty", "Kodaikanal", "Munnar", "Kochi",
+          "Botanical Garden", "Doddabetta Peak", "Kodaikanal Lake",
+          "Ooty Lake", "Jewish Synagogue", "St. Francis Church", "Dutch Palace"
+        ],
+        "tour_activities": ["Hill Stations & Valleys"],
+        "price": "On Request",
+        "overview": {
+          "exclusions": [
+            "Meals other than specified",
+            "Airfare/Transport costs",
+            "Personal expenses",
+            "Boating/fishing charges",
+            "Optional activities"
+          ],
+          "additional_conditions": [
+            "Advance payment required",
+            "Refunds with retention deductions",
+            "Cancellation policy varies",
+            "Transport paid upfront",
+            "Meal plan options available"
+          ]
+        },
+        "itinerary": {
+          "day_1": "Coimbatore - Ooty: Transfer with sightseeing",
+          "day_2": "Ooty Exploration: Tea gardens and viewpoints",
+          "day_3": "Ooty - Kodaikanal: Palani Temples transfer",
+          "day_4": "Kodaikanal: Lake activities and natural wonders",
+          "day_5": "Scenic drive to Munnar through plantations",
+          "day_6": "Munnar wildlife and heritage sites",
+          "day_7": "Cochin cultural and historical tour",
+          "day_8": "Departure formalities"
         }
       },
       {

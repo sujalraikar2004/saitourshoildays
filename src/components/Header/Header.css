@@ -185,8 +185,10 @@
   .hamburger {
       display: block;
   }
-
- 
+   
+ .navbar{
+  height:70px;
+ }
   .mobile-menu.open {
       right: 0;
   }

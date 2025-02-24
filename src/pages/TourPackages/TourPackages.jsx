@@ -6,11 +6,21 @@ import axios from "axios"; // Import axios for API request
 const TourPackages = () => {
 
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDestination, setSelectedDestination] = useState('All');
-  const [budgetRange, setBudgetRange] = useState([0, 100000]);
-  const [selectedDays, setSelectedDays] = useState('Any');
-
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedDestination, setSelectedDestination] = useState("");
+  const [selectedDays, setSelectedDays] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const toursPerPage = 5;
+  const [popup, setPopup] = useState(false);
+  
+  const filteredTours = sampleTours.filter((tour) => {
+    const matchesSearch = tour.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesDestination = selectedDestination
+      ? tour.destination.some((dest) => dest.toLowerCase().includes(selectedDestination.toLowerCase()))
+      : true;
+    const matchesDays = selectedDays ? tour.duration.includes(selectedDays) : true;
+    return matchesSearch && matchesDestination && matchesDays;
+  });
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -53,13 +63,14 @@ const TourPackages = () => {
       alert("Failed to submit enquiry. Please try again.");
     }
   };
-  const [currentPage, setCurrentPage] = useState(1);
-  const toursPerPage = 5;
-  const [popup, setPopup] = useState(false);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const toursPerPage = 5;
+  // const [popup, setPopup] = useState(false);
 
   const indexOfLastTour = currentPage * toursPerPage;
   const indexOfFirstTour = indexOfLastTour - toursPerPage;
-  const currentTours = sampleTours.slice(indexOfFirstTour, indexOfLastTour);
+  const currentTours = filteredTours.slice(indexOfFirstTour, indexOfLastTour);
+
 
   const totalPages = Math.ceil(sampleTours.length / toursPerPage);
 
@@ -67,7 +78,38 @@ const TourPackages = () => {
     <Layout>
       <div className="max-w-6xl mx-auto px-4 py-6">
       
+      
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Tour Packages</h2>
+        <div className="bg-gray-100 p-4 rounded-lg mb-6 flex flex-col md:flex-row gap-4">
+          <input
+            type="text"
+            placeholder="Search by Tour Name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="border border-gray-300 p-2 rounded-lg w-full md:w-1/3"
+          />
+          <select
+            value={selectedDestination}
+            onChange={(e) => setSelectedDestination(e.target.value)}
+            className="border border-gray-300 p-2 rounded-lg w-full md:w-1/3"
+          >
+            <option value="">All Destinations</option>
+            {[...new Set(sampleTours.flatMap((tour) => tour.destination))].map((dest) => (
+              <option key={dest} value={dest}>{dest}</option>
+            ))}
+          </select>
+          <select
+            value={selectedDays}
+            onChange={(e) => setSelectedDays(e.target.value)}
+            className="border border-gray-300 p-2 rounded-lg w-full md:w-1/3"
+          >
+            <option value="">Any Duration</option>
+            {[...new Set(sampleTours.map((tour) => tour.duration))].map((duration) => (
+              <option key={duration} value={duration}>{duration}</option>
+            ))}
+          </select>
+        </div>
+
       
         
 
@@ -76,7 +118,7 @@ const TourPackages = () => {
           {currentTours.map((tour) => (
             <div
               key={tour.package_id}
-              style={{
+              style={{    
                 minHeight: '320px',
                 height: '320px',
                 position: 'relative',
@@ -87,7 +129,7 @@ const TourPackages = () => {
                 transform: 'translateY(0)',
                 cursor: 'pointer'
               }}
-              className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row border hover:border-transparent group"
+              className="bg-white flex flex-col  shadow-md rounded-lg overflow-hidden md:flex-row border hover:border-transparent group"
             >
               
               <Link to={`/detail/${tour.package_id}`} className="w-full md:w-3/4 flex">
