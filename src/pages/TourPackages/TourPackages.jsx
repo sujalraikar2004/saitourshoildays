@@ -6,9 +6,10 @@ import axios from "axios"; // Import axios for API request
 const TourPackages = () => {
 
 
- 
-
-
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDestination, setSelectedDestination] = useState('All');
+  const [budgetRange, setBudgetRange] = useState([0, 100000]);
+  const [selectedDays, setSelectedDays] = useState('Any');
 
   const [formData, setFormData] = useState({
     name: "",
@@ -67,35 +68,122 @@ const TourPackages = () => {
       <div className="max-w-6xl mx-auto px-4 py-6">
       
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Tour Packages</h2>
+      
+        
 
      
         <div className="grid gap-5">
           {currentTours.map((tour) => (
             <div
               key={tour.package_id}
-              className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row border"
+              style={{
+                minHeight: '320px',
+                height: '320px',
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: '10px',
+                boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: 'translateY(0)',
+                cursor: 'pointer'
+              }}
+              className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row border hover:border-transparent group"
             >
               
               <Link to={`/detail/${tour.package_id}`} className="w-full md:w-3/4 flex">
                 {/* Tour Image */}
-                <div className="w-1/4">
+                <div style={{
+                  position: 'relative',
+                  height: '100%',
+                  width: '100%',
+                  overflow: 'hidden',
+                  filter: 'grayscale(20%)',
+                  opacity: 0.9,
+                  transform: 'translateZ(0)',
+                  transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+                  background: 'linear-gradient(120deg, #f5f5f5 30%, #ffffff 38%, #ffffff 40%, #f5f5f5 48%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer 1s infinite'
+                }}>
                   <img
                     src={tour.image}
-                    alt={tour.name}
-                    className="w-full h-40 object-cover"
+                    alt="Tour package"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center top',
+                      transform: 'scale(1.01)',
+                      transition: 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)'
+                    }}
+                    className="group-hover:scale-105"
                   />
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8))',
+                    transition: 'all 0.3s ease'
+                  }} />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '1rem',
+                    left: '1rem',
+                    right: '1rem',
+                    color: 'white',
+                    zIndex: 2
+                  }}>
+                    <h3 style={{
+                      fontSize: '1.75rem',
+                      fontWeight: 700,
+                      lineHeight: 1.2,
+                      textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                      opacity: 0,
+                      transform: 'translateY(20px)',
+                      transition: 'all 0.4s ease'
+                    }} className="group-hover:opacity-100 group-hover:translate-y-0">
+                      {tour.name}
+                    </h3>
+                  </div>
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+                      {tour.category}
+                    </span>
+                    <span className="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                      {tour.duration}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Tour Details */}
                 <div className="w-3/4 p-4">
-                  <h3 className="text-lg font-semibold text-orange-600">{tour.name}</h3>
-                  <p className="text-sm text-gray-700">
+                  <h3 style={{
+                    color: '#1a535c',
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    marginBottom: '0.5rem'
+                  }}>{tour.name}</h3>
+                  <p style={{
+                    color: '#2d3436',
+                    fontSize: '1rem',
+                    lineHeight: 1.6
+                  }}>
                     <strong>Duration:</strong> {tour.duration}
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p style={{
+                    color: '#2d3436',
+                    fontSize: '1rem',
+                    lineHeight: 1.6
+                  }}>
                     <strong>Destination Covered:</strong> {tour.destination.join(", ")}
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p style={{
+                    color: '#2d3436',
+                    fontSize: '1rem',
+                    lineHeight: 1.6
+                  }}>
                     <strong>Tour Activities:</strong> {tour.tour_activities}
                   </p>
                 </div>
@@ -103,10 +191,24 @@ const TourPackages = () => {
 
               {/* Price & Booking Button */}
               <div className="w-full md:w-1/4 flex flex-col justify-center items-center p-4 border-l">
-                <p className="text-lg font-semibold text-orange-600">Price</p>
-                <p className="text-gray-500 text-sm">On Request</p>
-                
-             
+                {/* Price Section */}
+                <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
+                  <p style={{ 
+                    color: '#1a535c',
+                    fontSize: '1.2rem',
+                    fontWeight: 600,
+                    marginBottom: '0.25rem'
+                  }}>
+                    Price
+                  </p>
+                  <p style={{
+                    color: '#2d3436',
+                    fontSize: '0.9rem',
+                    fontStyle: 'italic'
+                  }}>
+                    Available on request
+                  </p>
+                </div>
                 <button
                   onClick={(e) => {
                     e.stopPropagation(); 
@@ -127,8 +229,8 @@ const TourPackages = () => {
             <button
               key={num}
               onClick={() => setCurrentPage(num)}
-              className={`px-3 py-1 rounded-md ${
-                currentPage === num ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
+              className={`px-3 py-1 rounded-md transition-all duration-200 ${
+                currentPage === num ? "bg-blue-500 text-white scale-105" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
               {num}

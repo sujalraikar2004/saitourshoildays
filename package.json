@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@emotion/styled": "^11.14.0",
     "@heroicons/react": "^2.2.0",
     "axios": "^1.7.9",
     "country-state-city": "^3.2.1",
     "emailjs": "^4.0.3",
+    "rc-slider": "^11.1.8",
     "react": "^19.0.0",
     "react-datepicker": "^8.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
+    "react-scroll-parallax": "^3.4.5",
     "styled-components": "^6.1.15",
     "swiper": "^10.3.1"
   },

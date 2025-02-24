@@ -3,10 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import { Layout } from "../layout/Layout";
 import axios from "axios";
 import { sampleTours } from "../../utils/tourPackeges";
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import { ClockIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
 
 const TourDetail = () => {
   const { packageId } = useParams();
   const tour = sampleTours.find((t) => t.package_id === packageId);
+  console.log(tour);
   const [openDays, setOpenDays] = useState({});
   const [formData, setFormData] = useState({
     name: "",
@@ -24,18 +27,13 @@ const TourDetail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validation: Check if required fields are filled
     if (!formData.name || !formData.email || !formData.mobile) {
       alert("Please fill all required fields (Name, Email, Mobile No.).");
       return;
     }
-
     try {
-      await axios.post("https://backend-nine-mauve-86.vercel.app/tour_register",formData);
+      await axios.post("https://backend-nine-mauve-86.vercel.app/tour_register", formData);
       alert("Enquiry submitted successfully!");
-
-      // Reset form after successful submission 
       setFormData({
         name: "",
         description: "",
@@ -45,7 +43,6 @@ const TourDetail = () => {
         mobile: "",
         countryCode: "+91",
       });
-
     } catch (error) {
       alert("Failed to submit enquiry. Please try again.");
     }
@@ -58,8 +55,6 @@ const TourDetail = () => {
     }));
   };
 
-
-
   if (!tour) {
     return (
       <Layout>
@@ -71,170 +66,199 @@ const TourDetail = () => {
   }
 
   return (
+    <ParallaxProvider>
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Left Side - Tour Details */}
-          <div className="md:w-2/3">
-            <div className="bg-white shadow-md rounded-lg overflow-hidden">
-              <img src={tour.image} alt={tour.name} className="w-full h-64 object-cover" />
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-800">{tour.name}</h2>
-                <p className="text-gray-600"><strong>Duration:</strong> {tour.duration}</p>
-                <p className="text-gray-600"><strong>Destinations:</strong> {tour.destination.join(", ")}</p>
-                <p className="text-gray-600"><strong>Tour Activities:</strong> {tour.tour_activities}</p>
-                <div className="mt-4">
-                  <p className="text-lg font-semibold text-orange-500">Price: On Request</p>
+      <div className="max-w-7xl mx-auto px-4 py-12 bg-white min-h-screen">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Left Content */}
+          <div className="md:w-2/3 space-y-8">
+            {/* Enhanced Hero Section */}
+            <div className="relative overflow-hidden rounded-xl shadow-xl border border-gray-100 group">
+              <Parallax
+                y={[-20, 20]}
+                className='h-[400px] w-full overflow-hidden rounded-lg'
+              >
+                <img 
+                  src={tour.image} 
+                  alt={tour.name}
+                  className='h-full w-full object-cover'
+                />
+              </Parallax>
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                <div className="inline-block max-w-3xl px-8 py-6 bg-black/30 backdrop-blur-md rounded-xl border border-white/20">
+                  <h1 className="text-4xl font-bold text-white mb-3 tracking-tight">
+                    {tour.name}
+                  </h1>
+                  <div className="flex justify-center gap-6 mt-4">
+                    <p className="flex items-center gap-2 text-white/90">
+                      <ClockIcon className="w-6 h-6 text-white/80" />
+                      <span className="font-medium">{tour.duration}</span>
+                    </p>
+                    <p className="flex items-center gap-2 text-white/90">
+                      <CurrencyRupeeIcon className="w-6 h-6 text-white/80" />
+                      <span className="font-medium">On Request</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Tour Overview */}
-            <div className="mt-6 bg-gray-100 p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Tour Overview</h3>
-              <p className="text-gray-700 mt-2">
-                Airfare/Train Fare, personal expenses such as laundry, telephone calls, tips, 
-                and activities not mentioned in the itinerary.
-              </p>
+              {/* Itinerary Section */}
+              <div className="space-y-6">
+                <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
+                  Detailed Itinerary
+                </h2>
+                {tour.itinerary &&
+                  Object.keys(tour.itinerary).map((dayKey, index) => (
+                    <Parallax y={[-10, 10]} key={dayKey}>
+                      <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+                        <div
+                          className="flex items-center justify-between cursor-pointer"
+                          onClick={() => handleToggleDay(dayKey)}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-[#0d3b2a] text-white rounded-sm flex items-center justify-center">
+                              {index + 1}
+                            </div>
+                            <span className="font-medium text-gray-700">
+                              Day {index + 1}
+                            </span>
+                          </div>
+                          <span className={`text-gray-500 transition-transform ${
+                            openDays[dayKey] ? 'rotate-180' : ''
+                          }`}>
+                            ▼
+                          </span>
+                        </div>
+                        {openDays[dayKey] && (
+                          <p className="mt-3 ml-11 text-gray-600 leading-relaxed">
+                            {tour.itinerary[dayKey]}
+                          </p>
+                        )}
+                      </div>
+                    </Parallax>
+                  ))}
+              </div>
             </div>
 
-            {/* Itinerary */}
-            <div className="mt-6 bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-800">Itinerary</h3>
-              {tour.itinerary &&
-                Object.keys(tour.itinerary).map((dayKey, index) => (
-                  <div key={dayKey} className="border-b last:border-none py-4">
-                    <div
-                      className="cursor-pointer text-orange-500 font-semibold"
-                      onClick={() => handleToggleDay(dayKey)}
-                    >
-                      <span className="mr-2">Day {index + 1}:</span>
-                      {dayKey.replace("_", " ")}
+            {/* Right Side - Enquiry Form */}
+            <div className="md:w-1/3">
+              <div className="sticky top-24 space-y-8">
+                <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                  <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                    Request Details
+                  </h2>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-4">
+                      {/* Form Fields */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Full Name
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#0d3b2a] focus:border-[#0d3b2a]"
+                          placeholder="John Doe"
+                          required
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#0d3b2a] focus:border-[#0d3b2a]"
+                          placeholder="john@example.com"
+                          required
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Mobile Number
+                        </label>
+                        <div className="flex gap-2">
+                          <select
+                            name="countryCode"
+                            value={formData.countryCode}
+                            onChange={handleChange}
+                            className="px-4 py-2.5 rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#0d3b2a] focus:border-[#0d3b2a]"
+                          >
+                            <option>+91</option>
+                            <option>+1</option>
+                            <option>+44</option>
+                            <option>+61</option>
+                          </select>
+                          <input
+                            type="tel"
+                            name="mobile"
+                            value={formData.mobile}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#0d3b2a] focus:border-[#0d3b2a]"
+                            placeholder="9876543210"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Departure Date
+                        </label>
+                        <input
+                          type="date"
+                          name="departureDate"
+                          value={formData.departureDate}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#0d3b2a] focus:border-[#0d3b2a]"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Additional Notes
+                        </label>
+                        <textarea
+                          name="description"
+                          value={formData.description}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#0d3b2a] focus:border-[#0d3b2a]"
+                          rows="3"
+                          placeholder="Special requirements or questions..."
+                        />
+                      </div>
                     </div>
-                    {openDays[dayKey] && <p className="text-gray-700 mt-2">{tour.itinerary[dayKey]}</p>}
-                  </div>
-                ))}
-            </div>
-          </div>
 
-          {/* Right Side - Enquiry Form */}
-          <div className="md:w-1/3">
-            <div className="bg-orange-500 text-white p-4 rounded-t-lg font-bold text-center">
-              Fill Enquiry Form Below
-            </div>
-            <div className="bg-gray-100 p-6 rounded-b-lg shadow-md">
-            <form className="mt-4" onSubmit={handleSubmit}>
-      {/* Full Name */}
-      <div className="mb-4">
-        <label className="block text-gray-700 font-medium">Your Full Name</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter Name"
-          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-        />
-      </div>
+                    <button
+                      type="submit"
+                      className="w-full bg-[#0d3b2a] text-white py-2.5 rounded-lg font-medium hover:bg-[#1b4d3e] transition-colors"
+                    >
+                      Submit Enquiry
+                    </button>
+                  </form>
+                </div>
 
-      {/* Tour Description */}
-      <div className="mb-4">
-        <label className="block text-gray-700 font-medium">Tour Description</label>
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          placeholder="I am interested in . Please get in contact with me."
-          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          rows="3"
-        />
-      </div>
-
-      {/* Departure Date & Number of Days */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-gray-700 font-medium">Departure Date</label>
-          <input
-            type="date"
-            name="departureDate"
-            value={formData.departureDate}
-            onChange={handleChange}
-            className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-        </div>
-        <div>
-          <label className="block text-gray-700 font-medium">Number of Days</label>
-          <input
-            type="number"
-            name="days"
-            value={formData.days}
-            onChange={handleChange}
-            placeholder="Number of Days"
-            className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-        </div>
-      </div>
-
-      {/* Email ID */}
-      <div className="mt-4">
-        <label className="block text-gray-700 font-medium">Email ID</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          className="w-full border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-        />
-      </div>
-
-      {/* Mobile Number */}
-      <div className="mt-4">
-        <label className="block text-gray-700 font-medium">Mobile No.</label>
-        <div className="flex">
-          <select
-            name="countryCode"
-            value={formData.countryCode}
-            onChange={handleChange}
-            className="border p-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          >
-            <option>+91</option>
-            <option>+1</option>
-            <option>+44</option>
-            <option>+61</option>
-          </select>
-          <input
-            type="text"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            placeholder="Mobile No"
-            className="w-full border p-2 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-        </div>
-      </div>
-
-      {/* Submit Button */}
-      <div className="mt-6">
-        <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded-lg font-medium hover:bg-orange-700 transition">
-          Send Enquiry
-        </button>
-      </div>
-    </form>
+                <Link
+                  to="/tour-packages"
+                  className="block text-center text-[#0d3b2a] hover:text-[#1b4d3e] font-medium"
+                >
+                  ← Return to Tour Packages
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Back Button */}
-        <div className="mt-6 text-center">
-          <Link to="/tour-packages">
-            <button className="bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900">
-              Back to Packages
-            </button>
-          </Link>
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </ParallaxProvider>
   );
 };
 

@@ -3,7 +3,9 @@
       {
         "package_id": "001",
         "name": "Beautiful Kashmir Tour",
+        "image":"/AdobeStock_444736935_Preview.jpeg",
         "duration": "6 Nights / 7 Days",
+        "category":"domestic",
         "destination": ["Srinagar", "Pahalgam", "Gulmarg", "Sonamarg"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
@@ -37,6 +39,8 @@
         "package_id": "002",
         "name": "Full Himachal Tour - 9 Nights / 10 Days",
         "duration": "9 Nights / 10 Days",
+        "image":"/avi-theret-2u6eLolV1JY-unsplash.jpg",
+        "category":"domestic",
         "destination": ["Shimla", "Manali", "Dalhousie", "Dharamshala", "Chandigarh City"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
@@ -74,6 +78,8 @@
         "package_id": "003",
         "name": "Ooty - Cochin Package - 7 Nights / 8 Days",
         "duration": "7 Nights / 8 Days",
+        "image" :"public/ranjini-hemanth-KljpahUzp9U-unsplash.jpg",
+        "category":"domestic",
         "destination": [
           "Ooty", "Kodaikanal", "Munnar", "Kochi",
           "Botanical Garden", "Doddabetta Peak", "Kodaikanal Lake",
@@ -112,6 +118,9 @@
         "package_id": "004",
         "name": "Uttarakhand Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
+        "image":"/avi-theret-2u6eLolV1JY-unsplash.jpg",
+        "category":"domestic",
+        
         "destination": [
           "New Delhi", "Mussoorie", "Nainital",
           "Snow View Point", "Kempty Falls"
@@ -147,6 +156,8 @@
         "package_id": "005",
         "name": "Go Kerala Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
+        "image":"public/nature-photographer-29ezCWtMtnM-unsplash.jpg",
+        "category":"domestic",
         "destination": ["Munnar", "Thekkady", "Kumarakom", "Alleppey", "Kochi"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
@@ -179,6 +190,8 @@
         "package_id": "006",
         "name": "Darjeeling Glimpse of Eastern Himachal Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
+        "image":"/praneet-kumar-H8dcf-v98mA-unsplash.jpg",
+        "category":"domestic",
         "destination": [
           "Gangtok", "Kalimpong", "Darjeeling",
           "Padmaja Naidu Himalayan Zoological Park",
@@ -215,6 +228,8 @@
         "package_id": "007",
         "name": "Eastern Himachal (Gangtok, Pelling, Kalimpong, Darjeeling) Tour - 8 Nights / 9 Days",
         "duration": "8 Nights / 9 Days",
+        "image":"/naman-pandey-y3nWJ-QznP4-unsplash.jpg",
+        "category":"domestic",
         "destination": [
           "Gangtok", "Kalimpong", "Darjeeling", "Pelling",
           "Padmaja Naidu Himalayan Zoological Park",
@@ -255,6 +270,8 @@
         "package_id": "008",
         "name": "Hyderabad Darshan Tour - 3 Nights / 4 Days",
         "duration": "3 Nights / 4 Days",
+        "image":"/anand-godini-TxnuMwdzNgc-unsplash.jpg",
+        "category":"domestic",
         "destination": [
           "Hyderabad", "Salarjung Museum", "Hussain Sagar Lake",
           "Charminar", "Golconda Fort"
@@ -286,6 +303,8 @@
         "package_id": "009",
         "name": "Coastal Konkan Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
+        "image":"/harshal-more-aU_5VF6JfqY-unsplash.jpg",
+        "category":"domestic",
         "destination": [
           "Thane",
           "Pune",
@@ -322,6 +341,8 @@
         "package_id": "010",
         "name": "Konkan Hills & Waves Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
+        "image":"/pexels-prabhakar-prabhu-964346-16388093.jpg",
+        "category":"domestic",
         "destination": [
           "Thane", "Amba Ghat", "Marleshwar",
           "Ganpatipule", "Guhaghar", "Mahabaleshwar", "Panchgani"
@@ -354,6 +375,8 @@
         "package_id": "011",
         "name": "2 Night 3 Days Monsoon Mahabaleshwar Tour",
         "duration": "2 Nights / 3 Days",
+        "image":"/हिन्दूस्तान का गोरवसाली इतिहास.jpeg",
+        "category":"domestic",
         "destination": [
           "Mahabaleshwar", "Panchgani", "Satara", "Pratapgad"
         ],
@@ -383,6 +406,9 @@
         "package_id": "012",
         "name": "Nainital Mussoorie Corbett Park Tour - 10 Nights / 11 Days",
         "duration": "10 Nights / 11 Days",
+        "image":"/suketu-solanki-GROD99GNgN8-unsplash.jpg",
+        "category":"domestic",
+
         "destination": [
           "Mussoorie", "New Delhi", "Gurgaon", "Haridwar",
           "Rishikesh", "Nainital", "Snow View Point", "Kempty Falls",
@@ -419,6 +445,8 @@
         "package_id": "013",
         "name": "Phuket, Krabi, Pattaya & Bangkok Tour - 8 Nights / 9 Days",
         "duration": "8 Nights / 9 Days",
+        "image":"/mathew-schwartz-gsllxmVO4HQ-unsplash.jpg",
+        "category":"international",
         "destination": [
           "Phuket", "Krabi", "Pattaya", "Bangkok",
           "Phi Phi Islands", "James Bond Island",
@@ -455,6 +483,8 @@
         "package_id": "014",
         "name": "Amazing Singapore Tour - 4 Nights / 5 Days",
         "duration": "4 Nights / 5 Days",
+        "image":"/pexels-kin-pastor-251088-777059.jpg",
+        "category":"international",
         "destination": [
           "Singapore", "Sentosa Island", "Merlion Park",
           "Orchard Road", "Little India", "Chinatown"
@@ -486,6 +516,8 @@
         "package_id": "015",
         "name": "Magical Dubai Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
+        "image":"/pexels-apasaric-618079.jpg",
+        "category":"international",
         "destination": [
           "Dubai", "Yas Water Park", "Aquaventure",
           "Wild Wadi Park", "Burj Khalifa", "Desert Safari"
@@ -519,6 +551,8 @@
         "package_id": "016",
         "name": "Relaxing Singapore with Cruise Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
+        "image":"/pexels-robert-stokoe-105922-711193.jpg",
+        "category":"international",
         "destination": [
           "Singapore", "Sentosa Island", "Universal Studios",
           "Malacca Cruise", "Singapore Flyer", "Merlion Park"

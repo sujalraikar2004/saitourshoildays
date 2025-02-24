@@ -24,7 +24,7 @@ export const Header = () => {
           <li className="nav-dropdown">
             <span className="nav-link">Travel Services ▼</span>
             <ul className="dropdown-menu">
-              <li><NavLink to="/tour-operators" className="dropdown-link">Tour Operators</NavLink></li>
+              <li><NavLink to="/tour-operators" className="dropdown-link">Cruise Booking</NavLink></li>
               <li><NavLink to="/airline-ticketing" className="dropdown-link">Airline Ticketing</NavLink></li>
               <li><NavLink to="/hotel-booking" className="dropdown-link">Hotel Booking</NavLink></li>
               <li><NavLink to="/car-rental" className="dropdown-link">Car Rental Services</NavLink></li>
@@ -77,7 +77,7 @@ export const Header = () => {
             <li className="nav-dropdown">
             <span className="nav-link">Travel Services ▼</span>
             <ul className="dropdown-menu">
-              <li><NavLink to="/tour-operators" className="dropdown-link">Tour Operators</NavLink></li>
+              <li><NavLink to="/tour-operators" className="dropdown-link">Cruise Booking</NavLink></li>
               <li><NavLink to="/airline-ticketing" className="dropdown-link">Airline Ticketing</NavLink></li>
               <li><NavLink to="/hotel-booking" className="dropdown-link">Hotel Booking</NavLink></li>
               <li><NavLink to="/car-rental" className="dropdown-link">Car Rental Services</NavLink></li>

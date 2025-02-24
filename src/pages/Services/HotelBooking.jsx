@@ -386,8 +386,8 @@ export const HotelBooking = () => {
               desc: 'Customized domestic, international, adventure & beach island tours'
             },
             {
-              title: 'MICE Services',
-              icon: '🤝',
+              title: 'Cruise Booking',
+              icon: '🚢',
               desc: 'End-to-end corporate event management & group travel solutions'
             }
           ].map((service, index) => (
