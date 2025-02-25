@@ -11,7 +11,7 @@ export const Layout = ({children}) => {
    <div>{children}</div>
    <a
             href="https://wa.me/8431114777"
-            className="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-110 z-50"
+            className=" hidden md:block  fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-110 z-50"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -22,7 +22,7 @@ export const Layout = ({children}) => {
 
           <a
   href="tel:+919665669141"  
-  className="fixed bottom-40 right-8 bg-blue-500 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-110 z-50"
+  className="hidden md:block  fixed bottom-40 right-8 bg-blue-500 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:scale-110 z-50"
   target="_blank"
   rel="noopener noreferrer"
 >

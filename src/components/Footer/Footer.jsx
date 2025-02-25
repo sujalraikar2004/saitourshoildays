@@ -1,11 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Home, User, Package, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
+
+function NavItem({ to, icon, label ,external}) {
+  return (
+    external ? (
+      
+      <a href={to} className="nav-link">
+        {label}
+      </a>
+    ) : (
+    <Link to={to} className="flex flex-col items-center text-gray-700 hover:text-black transition">
+      {icon}
+      <span className="text-sm">{label}</span>
+    </Link>
+    )
+  );
+}
 export const Footer = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  
   return (
     <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="hidden md:grid  grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Information */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-indigo-500">Sixth Sense Holidays</h3>
@@ -67,7 +87,7 @@ export const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
+        <div className=" pt-2  border-t border-gray-800 text-center">
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Sai Tours . All rights reserved
           </p>
@@ -76,6 +96,17 @@ export const Footer = () => {
           </p>
         </div>
       </div>
+      <div
+      className={` md:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg border-t flex justify-around items-center py-3 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "translate-y-full"
+      } z-50`}
+    >
+      <NavItem to="/" icon={<Home size={24} />} label="Home" />
+      <NavItem to="/about" icon={<User size={24} />} label="Profile" />
+      <NavItem to="/tour-packages" icon={<Package size={24} />} label="Packages" />
+      <NavItem to="/contact" icon={<Phone size={24} />} label="ContactUs" />
+      <NavItem to="tel:+919876543210" label="Call" icon="/images/phone-icon.png" external />
+    </div>
     </footer>
   );
 };

@@ -100,7 +100,7 @@ export const Home = () => {
   return (
     <Layout>
       {/* Restored Hero Slider Section */}
-      <section className="relative h-[700px] group">
+      <section className="relative min-h-[60vh] md:h-[700px]  group">
         <Swiper
           loop={true}
           speed={800}
@@ -215,12 +215,12 @@ export const Home = () => {
           <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
             Our Premium Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Link
                 to={service.link}
                 key={index}
-                className="group relative block h-96 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all"
+                className="group relative block h-52 md:h-96 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all"
               >
                 <img
                   src={service.image}
