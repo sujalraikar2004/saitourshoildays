@@ -121,28 +121,31 @@ export const Home = () => {
             '/shifaaz-shamoon-qtbV_8P_Ksk-unsplash.jpg',
             '/samuel-scrimshaw-x8zEeH7euQI-unsplash.jpg',
             '/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg',
-            '/samuel-scrimshaw-x8zEeH7euQI-unsplash.jpg'
+           
           ].map((img, index) => (
             <SwiperSlide key={index}>
-              <div className="relative   lg:h-full w-full overflow-hidden">
-                <img
-                  src={img}
-                  loading="lazy"
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover brightness-75 transform-gpu scale-105 group-hover:scale-100 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent flex items-end pb-24">
-                  <div className="max-w-4xl mx-auto text-center px-4 space-y-6">
-                    <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 animate-float">
-                      Explore Incredible India
-                    </h1>
-                    <p className="text-xl text-gray-200 animate-float delay-100">
-                      {['Mountain Treks', 'Cultural Heritage', 'Beach Paradises'][index]}
-                    </p>
-                  </div>
+            <div className="relative min-h-[60vh] md:h-full w-full overflow-hidden">
+              <img
+                src={img}
+                loading="lazy"
+                alt={`Slide ${index + 1}`}
+                className="absolute top-0 left-0 w-full h-full object-cover object-center brightness-75 transform-gpu scale-105 group-hover:scale-100 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent flex items-end pb-12 md:pb-24">
+                <div className="max-w-4xl mx-auto text-center px-4 space-y-4 md:space-y-6">
+                  <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-8 animate-float">
+                    Explore Incredible India
+                  </h1>
+                  <p className="text-lg md:text-xl text-gray-200 animate-float delay-100">
+                    {['Mountain Treks', 'Cultural Heritage', 'Beach Paradises'][index]}
+                  </p>
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
+          </SwiperSlide>
+          
+          
+          
           ))}
         </Swiper>
       </section>

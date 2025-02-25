@@ -10,7 +10,15 @@
     color: #333;
     margin-bottom: 1rem;
   }
-  
+  /* @media (max-width: 768px) {
+    
+  .tourpackege{
+    
+     display: flex;
+     flex-direction: column;
+    }
+  } */
+ 
   .tour-cards {
     display: flex;
     flex-direction: column;

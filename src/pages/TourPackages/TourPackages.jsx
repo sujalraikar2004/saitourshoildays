@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { sampleTours } from "../../utils/tourPackeges";
 import { Layout } from "../layout/Layout";
+import "./TourList.css"
 import axios from "axios"; // Import axios for API request
 const TourPackages = () => {
 
@@ -119,8 +120,8 @@ const TourPackages = () => {
             <div
               key={tour.package_id}
               style={{    
-                minHeight: '320px',
-                height: '320px',
+                // minHeight: '320px',
+                // height: '320px',
                 position: 'relative',
                 overflow: 'hidden',
                 borderRadius: '10px',
@@ -129,10 +130,10 @@ const TourPackages = () => {
                 transform: 'translateY(0)',
                 cursor: 'pointer'
               }}
-              className="bg-white flex flex-col  shadow-md rounded-lg overflow-hidden md:flex-row border hover:border-transparent group"
+              className="tourpackege bg-white flex flex-col  shadow-md rounded-lg overflow-hidden md:flex-row border hover:border-transparent group"
             >
               
-              <Link to={`/detail/${tour.package_id}`} className="w-full md:w-3/4 flex">
+              <Link to={`/detail/${tour.package_id}`} className="w-full  flex-col md:w-3/4 flex items-center md:flex-row" >
                 {/* Tour Image */}
                 <div style={{
                   position: 'relative',

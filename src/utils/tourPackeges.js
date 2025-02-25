@@ -117,7 +117,7 @@
         "package_id": "004",
         "name": "Go Kerala Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
-        "image":"public/nature-photographer-29ezCWtMtnM-unsplash.jpg",
+        "image":"/nature-photographer-29ezCWtMtnM-unsplash.jpg",
         "category":"domestic",
         "destination": ["Munnar", "Thekkady", "Kumarakom", "Alleppey", "Kochi"],
         "tour_activities": ["Hill Stations & Valleys"],
@@ -189,7 +189,7 @@
         "package_id": "006",
         "name": "Ooty - Cochin Package - 7 Nights / 8 Days",
         "duration": "7 Nights / 8 Days",
-        "image" :"public/ranjini-hemanth-KljpahUzp9U-unsplash.jpg",
+        "image" :"/ranjini-hemanth-KljpahUzp9U-unsplash.jpg",
         "category":"domestic",
         "destination": [
           "Ooty", "Kodaikanal", "Munnar", "Kochi",
