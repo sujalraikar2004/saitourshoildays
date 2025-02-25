@@ -1,4 +1,7 @@
 import React from 'react';
+import { useState, useRef ,useEffect} from "react";
+import { motion, useScroll } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Layout } from '../layout/Layout';
 import { sampleTours } from "../../utils/tourPackeges";
 import { Link } from 'react-router-dom';
@@ -9,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/effect-creative';
 import 'swiper/css/pagination';
 import styled from 'styled-components';
+import "./Home.css"
 
 const Hero = styled.div`
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/hero-bg.jpg');
@@ -70,13 +74,34 @@ export const Home = () => {
     },
     {
       title: 'Tour Packages',
-      image: 'https://images.unsplash.com/photo-1587474260584-11ae9f217dde',
+      image: '/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg',
       desc: 'Customized travel itineraries',
-      link: '/services/tour-packages'
+      link: '/tour-packages'
     }
   ];
 
   const testimonials = [
+    {
+      name: 'Sarah Johnson',
+      role: 'Luxury Travel Blogger',
+      text: 'The most seamless booking experience I\'ve ever had. Our villa was even better than the photos!',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+      rating: 5
+    },
+    {
+      name: 'Sarah Johnson',
+      role: 'Luxury Travel Blogger',
+      text: 'The most seamless booking experience I\'ve ever had. Our villa was even better than the photos!',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+      rating: 5
+    },
+    {
+      name: 'Sarah Johnson',
+      role: 'Luxury Travel Blogger',
+      text: 'The most seamless booking experience I\'ve ever had. Our villa was even better than the photos!',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+      rating: 5
+    },
     {
       name: 'Sarah Johnson',
       role: 'Luxury Travel Blogger',
@@ -94,13 +119,50 @@ export const Home = () => {
   ];
   const firstThreeTours = sampleTours.slice(0, 4);
 
+  const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(1);
 
- 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        const cards = scrollRef.current.children;
+        let centerIndex = 0;
+        let minDiff = Infinity;
 
+        for (let i = 0; i < cards.length; i++) {
+          const rect = cards[i].getBoundingClientRect();
+          const centerDiff = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+          if (centerDiff < minDiff) {
+            minDiff = centerDiff;
+            centerIndex = i;
+          }
+        }
+        setActiveIndex(centerIndex);
+      }
+    };
+
+    const scrollContainer = scrollRef.current;
+    scrollContainer?.addEventListener("scroll", handleScroll);
+    
+    return () => scrollContainer?.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Function to scroll left & right
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
   return (
     <Layout>
       {/* Restored Hero Slider Section */}
-      <section className="relative min-h-[60vh] md:h-[700px]  group">
+      <section className="relative min-h-[54vh] md:h-[700px]  group">
         <Swiper
           loop={true}
           speed={800}
@@ -124,7 +186,7 @@ export const Home = () => {
            
           ].map((img, index) => (
             <SwiperSlide key={index}>
-            <div className="relative min-h-[60vh] md:h-full w-full overflow-hidden">
+            <div className="relative min-h-[54vh] md:h-full w-full overflow-hidden">
               <img
                 src={img}
                 loading="lazy"
@@ -239,41 +301,72 @@ export const Home = () => {
 
       {/* Testimonials Section */}
       <section className="py-24 px-4 bg-gradient-to-br from-teal-100 to-coral-100">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
-            What Our Travelers Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-6 mb-6">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-20 h-20 rounded-full object-cover"
-                  />
-                  <div>
-                    <h3 className="text-xl font-semibold">{testimonial.name}</h3>
-                    <p className="text-gray-600">{testimonial.role}</p>
-                  </div>
+      <div className="max-w-7xl mx-auto relative">
+        <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
+          What Our Travelers Say
+        </h2>
+
+        {/* Left Scroll Button */}
+        <button
+          onClick={scrollLeft}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 shadow-md rounded-full hidden sm:flex"
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        {/* Horizontal scrolling container */}
+        <div
+          ref={scrollRef}
+          className="relative flex gap-6 overflow-x-auto no-scrollbar pb-6 scroll-smooth snap-x snap-mandatory"
+          onWheel={(e) => {
+            e.preventDefault();
+            scrollRef.current.scrollBy({ left: e.deltaY * 2, behavior: "smooth" });
+          }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              className={`flex-shrink-0 transition-transform duration-300 rounded-2xl p-6 shadow-md snap-center
+                w-[85%] sm:w-[40%] md:w-[30%] lg:w-[25%]
+                ${
+                  activeIndex === index
+                    ? "scale-110 shadow-2xl bg-white z-10"
+                    : "scale-90 bg-gray-100"
+                }`}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <img
+                  src={testimonial.avatar}
+                  alt={testimonial.name}
+                  className="w-14 h-14 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold">{testimonial.name}</h3>
+                  <p className="text-gray-600">{testimonial.role}</p>
                 </div>
-                <p className="text-gray-700 text-lg leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
-                <div className="mt-6 flex gap-1 text-teal-400">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <StarIcon key={i} className="w-6 h-6 fill-current" />
-                  ))}
-                </div>
-                <span className="absolute -bottom-2 left-0 w-full h-2 bg-gradient-to-r from-coral-300 to-teal-300 rounded-full" />
               </div>
-            ))}
-          </div>
+              <p className="text-gray-700 text-sm leading-relaxed italic">
+                "{testimonial.text}"
+              </p>
+              <div className="mt-4 flex gap-1 text-teal-400">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i} className="w-5 h-5">⭐</span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+
+        {/* Right Scroll Button */}
+        <button
+          onClick={scrollRight}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 shadow-md rounded-full hidden sm:flex"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+    </section>
     </Layout>
   );
 };

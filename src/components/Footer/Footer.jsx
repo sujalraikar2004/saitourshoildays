@@ -4,23 +4,45 @@ import { Home, User, Package, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 
-function NavItem({ to, icon, label ,external}) {
+function NavItem({ to, icon: Icon, label, activePath }) {
+  const isActive = activePath === to;
+
   return (
-    external ? (
-      
-      <a href={to} className="nav-link">
-        {label}
-      </a>
-    ) : (
-    <Link to={to} className="flex flex-col items-center text-gray-700 hover:text-black transition">
-      {icon}
+    <Link
+      to={to}
+      className={`flex flex-col items-center transition ${
+        isActive ? "text-teal-800 font-semibold" : "text-gray-700"
+      } hover:text-black`}
+    >
+      <Icon size={24} color={isActive ? "#115E59" : "gray"} />
       <span className="text-sm">{label}</span>
     </Link>
-    )
   );
 }
 export const Footer = () => {
   const [isVisible, setIsVisible] = useState(true);
+  let lastScrollY = 0;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY < lastScrollY);
+      lastScrollY = window.scrollY;
+    };
+
+    let timeout;
+    const handleStopScroll = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => setIsVisible(true), 200);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleStopScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleStopScroll);
+    };
+  }, []);
   
   return (
     <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
@@ -101,11 +123,12 @@ export const Footer = () => {
         isVisible ? "translate-y-0" : "translate-y-full"
       } z-50`}
     >
-      <NavItem to="/" icon={<Home size={24} />} label="Home" />
-      <NavItem to="/about" icon={<User size={24} />} label="Profile" />
-      <NavItem to="/tour-packages" icon={<Package size={24} />} label="Packages" />
-      <NavItem to="/contact" icon={<Phone size={24} />} label="ContactUs" />
-      <NavItem to="tel:+919876543210" label="Call" icon="/images/phone-icon.png" external />
+       <NavItem to="/" icon={Home} label="Home" activePath={location.pathname} />
+      <NavItem to="/about" icon={User} label="Profile" activePath={location.pathname} />
+      <NavItem to="/tour-packages" icon={Package} label="Packages" activePath={location.pathname} />
+      <NavItem to="/contact" icon={Phone} label="Contact" activePath={location.pathname} />
+   
+      
     </div>
     </footer>
   );
