@@ -173,7 +173,7 @@ export const Home = () => {
             next: { shadow: true, translate: ['120%', 0, -500], rotate: [0, 0, 15] }
           }}
           autoplay={{
-            delay: 4000,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           modules={[EffectCreative, Autoplay]}

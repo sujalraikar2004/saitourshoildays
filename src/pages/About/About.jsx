@@ -85,11 +85,11 @@ export  function About() {
         {/* Services Section */}
        
         <h2 
-  className="text-3xl font-bold text-gray-800 mb-8 opacity-0 translate-y-8 transition-all duration-500 delay-300"
+  className="text-3xl font-bold text-gray-800 mb-8  translate-y-8 transition-all duration-500 delay-300"
 >
   Our Services
 </h2>
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-1 " >
   {[
     {
       title: "Airline Ticketing",

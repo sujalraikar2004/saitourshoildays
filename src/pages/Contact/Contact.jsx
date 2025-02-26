@@ -49,7 +49,7 @@ export const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800">Contact Person</p>
-                        <p className="text-gray-600">Mr. Nilesh Pawaskar</p>
+                        <p className="text-gray-600">Mr. Gurudas revankar </p>
                       </div>
                     </div>
 
@@ -70,7 +70,7 @@ export const Contact = () => {
                       <div>
                         <p className="font-semibold text-gray-800">Direct Line</p>
                         <a href="tel:+91-9890818553" className="text-indigo-600 hover:text-indigo-800 transition">
-                          +91-9890818553
+                          +91-8431114777
                         </a>
                       </div>
                     </div>
@@ -152,7 +152,7 @@ export const Contact = () => {
           {/* Services Section */}
           <div className="max-w-6xl mx-auto px-4">
             <h2 
-              className="text-3xl font-bold text-gray-800 mb-8 opacity-0 translate-y-8 transition-all duration-500 delay-300"
+              className="text-3xl font-bold text-gray-800 mb-10 translate-y-8 transition-all duration-500 delay-300"
             >
               Our Services
             </h2>

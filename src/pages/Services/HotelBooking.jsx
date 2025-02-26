@@ -354,7 +354,7 @@ export const HotelBooking = () => {
 
       {/* Services Section */}
       <h2 
-  className="text-3xl font-bold text-gray-800 mb-8 opacity-0 translate-y-8 transition-all duration-500 delay-300"
+  className="text-3xl font-bold text-gray-800 mb-10 translate-y-8 transition-all duration-500 delay-300"
 >
   Our Services
 </h2>
