@@ -14,7 +14,8 @@ import { EventOrganizer } from './pages/Services/EventOrganizer'
 import { TravelInsurance } from './pages/Services/TravelInsurance'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import TourDetail from './pages/TourDetail/TourDetail.jsx'
-
+import DomasticTour from './pages/TourByDestination/DomasticTour.jsx'
+import International from './pages/TourByDestination/International.jsx'
 function App() {
   return (
     <div className="min-h-screen relative pb-[200px]">
@@ -30,6 +31,8 @@ function App() {
           <Route path="/car-rental" element={<CarRental />} />
           <Route path="/event-organizer" element={<EventOrganizer />} />
           <Route path="/travel-insurance" element={<TravelInsurance />} />
+          <Route path="/domastic_tour" element={<DomasticTour />} />
+          <Route path="/international_tour" element={<DomasticTour />} />
           <Route path="/detail/:packageId"   element={<TourDetail/>}/>
         </Routes>
       </BrowserRouter>

@@ -40,6 +40,15 @@ export const Header = () => {
               Tour Packages
             </NavLink>
           </li>
+          <li className="nav-dropdown">
+            <span className="nav-link">Tour by destination ▼</span>
+            <ul className="dropdown-menu">
+              <li><NavLink to="/domastic_tour" className="dropdown-link">Domastic</NavLink></li>
+              <li><NavLink to="/international_tour" className="dropdown-link">International</NavLink></li>
+
+            </ul>
+          </li>
+        
           <li>
             <NavLink 
               to="/about" 
@@ -56,6 +65,7 @@ export const Header = () => {
               Contact
             </NavLink>
           </li>
+          
         </ul>
         <div className="hamburger" onClick={toggleMenu}>
           <div className="hamburger-icon"></div>
@@ -87,7 +97,16 @@ export const Header = () => {
           </li>
             <li>
               <NavLink to="/tour-packages" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={toggleMenu}>Tour Packages</NavLink>
+
             </li>
+            <li className="nav-dropdown">
+            <span className="nav-link">TourByDestination▼</span>
+            <ul className="dropdown-menu">
+              <li><NavLink to="/domastic_tour" className="dropdown-link">Domastic</NavLink></li>
+              <li><NavLink to="/international_tour" className="dropdown-link">International</NavLink></li>
+
+            </ul>
+          </li>
             <li>
               <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={toggleMenu}>About</NavLink>
             </li>

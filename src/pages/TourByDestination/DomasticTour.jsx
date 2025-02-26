@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { sampleTours } from "../../utils/tourPackeges";
 import { Layout } from "../layout/Layout";
-import "./TourList.css"
-import axios from "axios"; // Import axios for API request
-const TourPackages = () => {
+import axios from "axios"; 
+const DomasticTour = () => {
 
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -116,7 +115,7 @@ const TourPackages = () => {
 
      
         <div className="grid gap-5">
-          {currentTours.map((tour) => (
+          {currentTours.map((tour) => tour.category==="domestic" && (
             
             <div
               key={tour.package_id}
@@ -404,4 +403,4 @@ const TourPackages = () => {
   );
 };
 
-export default TourPackages;
+export default DomasticTour;
