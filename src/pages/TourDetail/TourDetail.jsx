@@ -5,6 +5,7 @@ import axios from "axios";
 import { sampleTours } from "../../utils/tourPackeges";
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import { ClockIcon, CurrencyRupeeIcon } from '@heroicons/react/24/outline';
+import { li } from "framer-motion/client";
 
 const TourDetail = () => {
   const { packageId } = useParams();
@@ -140,8 +141,31 @@ const TourDetail = () => {
                     </Parallax>
                   ))}
               </div>
+              <h3 className="text-2xl font-semibold mt-5">More Details about  {tour.destination.slice(0, 3).join(", ")}
+              Tour</h3>
+            <div className=" shadow-lg p-4 bg-white">
+              <p className="mb-2 text-2xl font-semibold">exclusions</p>
+              <ul className="list-disc list-inside">
+              {
+                tour.exclusions.map((ele)=>(
+                  <li>{ele}</li>
+                ))
+              }</ul>
+
+            </div>
+            <div className="shadow-lg p-4 bg-white mt-2">
+              <p className="mb-2 text-2xl font-semibold">term & conditions</p>
+              <ul className="list-disc list-inside">
+                {
+                  tour.additional_conditions.map((ele)=>(
+                    <li>{ele}</li>
+                  ))
+                }
+              </ul>
             </div>
 
+            </div>
+           
             {/* Right Side - Enquiry Form */}
             <div className="md:w-1/3">
               <div className="sticky top-24 space-y-8">
