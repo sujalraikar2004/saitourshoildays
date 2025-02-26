@@ -31,7 +31,7 @@ export const Header = () => {
               <li><NavLink to="/airline-ticketing" className="dropdown-link">Airline Ticketing</NavLink></li>
               <li><NavLink to="/hotel-booking" className="dropdown-link">Hotel Booking</NavLink></li>
               <li><NavLink to="/car-rental" className="dropdown-link">Car Rental Services</NavLink></li>
-              <li><NavLink to="/travel-insurance" className="dropdown-link">Travel Insurance</NavLink></li>
+              
             </ul>
           </li>
           <li>
