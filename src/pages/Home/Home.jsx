@@ -62,13 +62,13 @@ export const Home = () => {
     },
     {
       title: 'Hotel Bookings', 
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb',
+      image: '/tourist-resort-at-sunset.webp',
       desc: '5-star accommodations worldwide',
       link: '/hotel-booking'
     },
     {
       title: 'Air Ticketing',
-      image: 'https://images.unsplash.com/photo-1556388158-158ea5ccacbd',
+      image: '/close-up-of-airplane-wing-flying-at-sunrise.webp',
       desc: 'First-class flight arrangements',
       link: '/airline-ticketing'
     },
@@ -162,7 +162,7 @@ export const Home = () => {
   return (
     <Layout>
       {/* Restored Hero Slider Section */}
-      <section className="relative min-h-[54vh] md:h-[700px]  group">
+      <section className="relative min-h-[54vh] md:h-[700px]   group">
         <Swiper
           loop={true}
           speed={800}
@@ -195,7 +195,7 @@ export const Home = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent flex items-end pb-12 md:pb-24">
                 <div className="max-w-4xl mx-auto text-center px-4 space-y-4 md:space-y-6">
-                  <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-8 animate-float">
+                  <h1 className="text-3xl md:text-6xl lg:text-8xl font-bold text-white mb-4 md:mb-8 animate-float">
                     Explore Incredible India
                   </h1>
                   <p className="text-lg md:text-xl text-gray-200 animate-float delay-100">
@@ -214,7 +214,7 @@ export const Home = () => {
 
       <section className="py-16 bg-gradient-to-b from-teal-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-2 text-teal-800">
+          <h2 className="  text-2xl md:text-4xl font-bold text-center mb-2 text-teal-800">
             Featured Tour Packages
           </h2>
           <p className="text-center text-gray-600 mb-12">
@@ -274,7 +274,7 @@ export const Home = () => {
       {/* Services Section */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
+          <h2 className=" text-2xl md:text-4xl font-bold text-center mb-16 text-gray-800">
             Our Premium Services
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -302,7 +302,7 @@ export const Home = () => {
       {/* Testimonials Section */}
       <section className="py-24 px-4 bg-gradient-to-br from-teal-100 to-coral-100">
       <div className="max-w-7xl mx-auto relative">
-        <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
+        <h2 className=" text-2xl md:text-4xl font-bold text-center mb-16 text-gray-800">
           What Our Travelers Say
         </h2>
 

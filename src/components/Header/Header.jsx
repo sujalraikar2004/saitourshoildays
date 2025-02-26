@@ -78,7 +78,7 @@ export const Header = () => {
         {/* Mobile Menu - Slider */}
         <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
           {/* Close Button */}
-          <div className="close-btn" onClick={toggleMenu}>X</div>
+          <div className="close-btn " onClick={toggleMenu}>X</div>
 
           {/* Mobile Navigation Links */}
           <ul className="mobile-nav-links">
