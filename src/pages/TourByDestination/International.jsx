@@ -70,6 +70,7 @@ const International = () => {
   const indexOfLastTour = currentPage * toursPerPage;
   const indexOfFirstTour = indexOfLastTour - toursPerPage;
   const currentTours = filteredTours.slice(indexOfFirstTour, indexOfLastTour);
+  
 
 
   const totalPages = Math.ceil(sampleTours.length / toursPerPage);
