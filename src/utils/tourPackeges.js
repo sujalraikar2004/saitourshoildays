@@ -3,7 +3,7 @@
       {
         "package_id": "001",
         "name": "Beautiful Kashmir Tour",
-        "image":"/AdobeStock_444736935_Preview.jpeg",
+        "image":"/divya-agrawal-qa8VhqvJGIo-unsplash.jpg",
         "duration": "6 Nights / 7 Days",
         "category":"domestic",
         "destination": ["Srinagar", "Pahalgam", "Gulmarg", "Sonamarg","Srinagar"],
@@ -39,7 +39,7 @@
         "package_id": "002",
         "name": "Full Himachal Tour - 9 Nights / 10 Days",
         "duration": "9 Nights / 10 Days",
-        "image":"/avi-theret-2u6eLolV1JY-unsplash.jpg",
+        "image":"/Adobe Express - file(5).jpg",
         "category":"domestic",
         "destination": ["Shimla", "Manali", "Dalhousie", "Dharamshala", "Chandigarh City"],
         "tour_activities": ["Hill Stations & Valleys"],
@@ -79,7 +79,7 @@
         "package_id": "003",
         "name": "Uttarakhand Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
-        "image":"/avi-theret-2u6eLolV1JY-unsplash.jpg",
+        "image":"/Adobe Express - file.jpg",
         "category":"domestic",
         
         "destination": [
@@ -117,7 +117,7 @@
         "package_id": "004",
         "name": "Go Kerala Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
-        "image":"/nature-photographer-29ezCWtMtnM-unsplash.jpg",
+        "image":"/Adobe Express - file(6).jpg",
         "category":"domestic",
         "destination": ["Munnar", "Thekkady", "Kumarakom", "Alleppey", "Kochi"],
         "tour_activities": ["Hill Stations & Valleys"],
@@ -151,7 +151,7 @@
         "package_id": "005",
         "name": "Darjeeling Glimpse of Eastern Himachal Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
-        "image":"/praneet-kumar-H8dcf-v98mA-unsplash.jpg",
+        "image":"/Adobe Express - file(10).jpg",
         "category":"domestic",
         "destination": [
           "Gangtok", "Kalimpong", "Darjeeling",
@@ -189,7 +189,7 @@
         "package_id": "006",
         "name": "Ooty - Cochin Package - 7 Nights / 8 Days",
         "duration": "7 Nights / 8 Days",
-        "image" :"/ranjini-hemanth-KljpahUzp9U-unsplash.jpg",
+        "image" :"/Adobe Express - file(11).jpg",
         "category":"domestic",
         "destination": [
           "Ooty", "Kodaikanal", "Munnar", "Kochi",
@@ -229,7 +229,7 @@
         "package_id": "007",
         "name": "Eastern Himachal (Gangtok, Pelling, Kalimpong, Darjeeling) Tour - 8 Nights / 9 Days",
         "duration": "8 Nights / 9 Days",
-        "image":"/naman-pandey-y3nWJ-QznP4-unsplash.jpg",
+        "image":"public/Adobe Express - file(3).jpg",
         "category":"domestic",
         "destination": [
           "Gangtok", "Kalimpong", "Darjeeling", "Pelling",
@@ -304,7 +304,7 @@
         "package_id": "009",
         "name": "Coastal Konkan Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
-        "image":"/harshal-more-aU_5VF6JfqY-unsplash.jpg",
+        "image":"/Adobe Express - file(2).jpg",
         "category":"domestic",
         "destination": [
           "Thane",
@@ -446,7 +446,7 @@
         "package_id": "013",
         "name": "Phuket, Krabi, Pattaya & Bangkok Tour - 8 Nights / 9 Days",
         "duration": "8 Nights / 9 Days",
-        "image":"/mathew-schwartz-gsllxmVO4HQ-unsplash.jpg",
+        "image":"/Adobe Express - file(4).jpg",
         "category":"international",
         "destination": [
           "Phuket", "Krabi", "Pattaya", "Bangkok",
@@ -484,7 +484,7 @@
         "package_id": "014",
         "name": "Amazing Singapore Tour - 4 Nights / 5 Days",
         "duration": "4 Nights / 5 Days",
-        "image":"/pexels-kin-pastor-251088-777059.jpg",
+        "image":"/Adobe Express - file(8).jpg",
         "category":"international",
         "destination": [
           "Singapore", "Sentosa Island", "Merlion Park",
@@ -517,7 +517,7 @@
         "package_id": "015",
         "name": "Magical Dubai Tour - 5 Nights / 6 Days",
         "duration": "5 Nights / 6 Days",
-        "image":"/pexels-apasaric-618079.jpg",
+        "image":"/Adobe Express - file(7).jpg",
         "category":"international",
         "destination": [
           "Dubai", "Yas Water Park", "Aquaventure",
@@ -552,7 +552,7 @@
         "package_id": "016",
         "name": "Relaxing Singapore with Cruise Tour - 6 Nights / 7 Days",
         "duration": "6 Nights / 7 Days",
-        "image":"/pexels-robert-stokoe-105922-711193.jpg",
+        "image":"/Adobe Express - file(9).jpg",
         "category":"international",
         "destination": [
           "Singapore", "Sentosa Island", "Universal Studios",
