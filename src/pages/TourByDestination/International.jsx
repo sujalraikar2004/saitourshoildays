@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { sampleTours } from "../../utils/tourPackeges";
 import { Layout } from "../layout/Layout";
 import axios from "axios"; 
+import { small } from "framer-motion/client";
 const International = () => {
 
 
@@ -12,8 +13,10 @@ const International = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const toursPerPage = 5;
   const [popup, setPopup] = useState(false);
-  
-  const filteredTours = sampleTours.filter((tour) => {
+  const internationalTour= sampleTours.filter((tour)=> tour.category==="international")
+
+
+  const filteredTours = internationalTour.filter((tour) => {
     const matchesSearch = tour.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesDestination = selectedDestination
       ? tour.destination.some((dest) => dest.toLowerCase().includes(selectedDestination.toLowerCase()))
@@ -70,10 +73,10 @@ const International = () => {
   const indexOfLastTour = currentPage * toursPerPage;
   const indexOfFirstTour = indexOfLastTour - toursPerPage;
   const currentTours = filteredTours.slice(indexOfFirstTour, indexOfLastTour);
-  
 
 
-  const totalPages = Math.ceil(sampleTours.length / toursPerPage);
+
+  const totalPages = Math.ceil(internationalTour.length / toursPerPage);
 
   return (
     <Layout>

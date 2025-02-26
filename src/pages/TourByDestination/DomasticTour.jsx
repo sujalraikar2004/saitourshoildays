@@ -12,8 +12,8 @@ const DomasticTour = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const toursPerPage = 5;
   const [popup, setPopup] = useState(false);
-  
-  const filteredTours = sampleTours.filter((tour) => {
+   const domesticlTour= sampleTours.filter((tour)=> tour.category==="domestic")
+  const filteredTours =domesticlTour.filter((tour) => {
     const matchesSearch = tour.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesDestination = selectedDestination
       ? tour.destination.some((dest) => dest.toLowerCase().includes(selectedDestination.toLowerCase()))
@@ -72,7 +72,7 @@ const DomasticTour = () => {
   const currentTours = filteredTours.slice(indexOfFirstTour, indexOfLastTour);
 
 
-  const totalPages = Math.ceil(sampleTours.length / toursPerPage);
+  const totalPages = Math.ceil(domesticlTour.length / toursPerPage);
 
   return (
     <Layout>
@@ -115,7 +115,7 @@ const DomasticTour = () => {
 
      
         <div className="grid gap-5">
-          {currentTours.map((tour) => tour.category==="domestic" && (
+          {currentTours.map((tour) =>  (
             
             <div
               key={tour.package_id}

@@ -10,9 +10,9 @@ export const Header = () => {
   }
   return (
     <header className="header-nav-container">
-      <nav className='navbar'>
+      <nav className='navbar '>
         <h1  className='logo' >SaiTours</h1>
-        <ul className="nav-links" >
+        <ul className="nav-links md:flex md:gap-2 lg:flex lg:gap-8" >
           <li>
             <NavLink 
               to="/" 
