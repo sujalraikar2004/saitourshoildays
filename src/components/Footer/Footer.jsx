@@ -50,7 +50,7 @@ export const Footer = () => {
         <div className="hidden md:grid  grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Information */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-indigo-500">Sixth Sense Holidays</h3>
+            <h3 className="text-xl font-bold text-indigo-500">Sai Tours</h3>
             <p className="text-sm leading-6">
               Crafting unforgettable journeys since 2010. Your trusted partner in premium travel experiences.
             </p>
@@ -98,11 +98,11 @@ export const Footer = () => {
               <p className="text-sm">
                 <span className="font-medium">Email:</span>{' '}
                 <a href="mailto:sixthsense.holidays@gmail.com" className="hover:text-indigo-400 transition-colors">
-                  sixthsense.holidays@gmail.com
+                  infosaitours1@gmail.com
                 </a>
               </p>
               <p className="text-sm">
-                <span className="font-medium">Address:</span> Office No 159, Shoppers Orbit Mall, Pune
+                <span className="font-medium">Address:</span> Sai Tours, 29/79A keshav shet road sonarwada baad Karwar 581306
               </p>
             </div>
           </div>

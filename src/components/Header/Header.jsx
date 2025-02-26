@@ -11,7 +11,10 @@ export const Header = () => {
   return (
     <header className="header-nav-container">
       <nav className='navbar '>
-        <h1  className='logo' >SaiTours</h1>
+        <div>
+        <img src="/sai tours logo crop.jpg" alt="" className='w-25 h-12 md:h-15 ' />
+        </div>
+        
         <ul className="nav-links md:flex md:gap-2 lg:flex lg:gap-8" >
           <li>
             <NavLink 
@@ -28,7 +31,6 @@ export const Header = () => {
               <li><NavLink to="/airline-ticketing" className="dropdown-link">Airline Ticketing</NavLink></li>
               <li><NavLink to="/hotel-booking" className="dropdown-link">Hotel Booking</NavLink></li>
               <li><NavLink to="/car-rental" className="dropdown-link">Car Rental Services</NavLink></li>
-              <li><NavLink to="/event-organizer" className="dropdown-link">Event Organizer</NavLink></li>
               <li><NavLink to="/travel-insurance" className="dropdown-link">Travel Insurance</NavLink></li>
             </ul>
           </li>

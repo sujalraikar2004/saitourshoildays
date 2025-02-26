@@ -39,7 +39,7 @@ export const Contact = () => {
               <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl hover:shadow-indigo-100 transition-all duration-300">
                 <div className="space-y-6">
                   <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                    Sixth Sense Holidays
+                    Sai Tours
                   </h2>
                   
                   <div className="space-y-4">
@@ -59,7 +59,7 @@ export const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800">Head Office</p>
-                        <p className="text-gray-600">Office No 159, Shoppers Orbit Mall, Pune</p>
+                        <p className="text-gray-600">Sai Tours, 29/79A keshav shet road sonarwada baad Karwar 581306</p>
                       </div>
                     </div>
 
@@ -82,7 +82,7 @@ export const Contact = () => {
                       <div>
                         <p className="font-semibold text-gray-800">Email</p>
                         <a href="mailto:sixthsense.holidays@gmail.com" className="text-indigo-600 hover:text-indigo-800 transition">
-                          sixthsense.holidays@gmail.com
+                        infosaitours1@gmail.com
                         </a>
                       </div>
                     </div>

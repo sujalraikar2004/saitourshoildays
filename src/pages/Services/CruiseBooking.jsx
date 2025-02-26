@@ -3,7 +3,7 @@ import { Layout } from '../layout/Layout';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GlobeAltIcon, CalendarIcon, UserIcon, TicketIcon, UserGroupIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
-import emailjs from '@emailjs/browser';
+import { Link } from 'react-router-dom';
 import { Country, State, City } from 'country-state-city';
 
 export const CruiseBooking = () => {
@@ -42,7 +42,7 @@ export const CruiseBooking = () => {
     setCity('');
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = async(e) => {
     e.preventDefault();
 
     const templateParams = {
@@ -62,13 +62,13 @@ export const CruiseBooking = () => {
       phone
     };
 
-    emailjs.send('service_xmn308n', 'template_1wtx2ac', templateParams, 'Jg0jbHfvWnCunrIlu')
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Successfully sent enquiry!');
-      }, (err) => {
-        console.log('FAILED...', err);
-      });
+    try {
+      await axios.post(" https://backend-nine-mauve-86.vercel.app/cruise_booking", templateParams);
+      alert("Enquiry submitted successfully!");
+      
+    } catch (error) {
+      alert("Failed to submit enquiry. Please try again.");
+    }
   };
 
   return (
@@ -392,60 +392,65 @@ export const CruiseBooking = () => {
       </div>
 
       {/* Services Section */}
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 
-          className="text-3xl font-bold text-gray-800 mb-8 opacity-0 translate-y-8 transition-all duration-500 delay-300"
-        >
-          Our Services
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {[
-            {
-              title: 'Airline Ticketing',
-              icon: '✈️',
-              desc: 'Expert booking services for domestic & international flights with best fares'
-            },
-            {
-              title: 'Hotel Booking',
-              icon: '🏨',
-              desc: 'Curated selection of premium accommodations to match your preferences'
-            },
-            {
-              title: 'Car Rental',
-              icon: '🚗',
-              desc: 'Luxury and economy vehicles with chauffeur options available'
-            },
-            {
-              title: 'Travel Insurance',
-              icon: '🛡️',
-              desc: 'Comprehensive coverage plans for worry-free travels'
-            },
-            {
-              title: 'Tour Packages',
-              icon: '🌴',
-              desc: 'Customized domestic, international, adventure & beach island tours'
-            },
-            {
-              title: 'Cruise Booking',
-              icon: '🚢',
-              desc: 'End-to-end corporate event management & group travel solutions'
-            }
-          ].map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-transparent hover:border-indigo-100"
-            >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-indigo-600 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 text-sm">
-                {service.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <h2 
+  className="text-3xl font-bold text-gray-800 mb-8 opacity-0 translate-y-8 transition-all duration-500 delay-300"
+>
+  Our Services
+</h2>
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+  {[
+    {
+      title: "Airline Ticketing",
+      icon: "✈️",
+      desc: "Expert booking services for domestic & international flights with best fares",
+      link: "/airline-ticketing",
+    },
+    {
+      title: "Hotel Booking",
+      icon: "🏨",
+      desc: "Curated selection of premium accommodations to match your preferences",
+      link: "/hotel-booking",
+    },
+    {
+      title: "Car Rental",
+      icon: "🚗",
+      desc: "Luxury and economy vehicles with chauffeur options available",
+      link: "/car-rental",
+    },
+    {
+      title: "Travel Insurance",
+      icon: "🛡️",
+      desc: "Comprehensive coverage plans for worry-free travels",
+      link: "/travel-insurance",
+    },
+    {
+      title: "Tour Packages",
+      icon: "🌴",
+      desc: "Customized domestic, international, adventure & beach island tours",
+      link: "/tour-packages",
+    },
+    {
+      title: "Cruise Booking",
+      icon: "🚢",
+      desc: "End-to-end corporate event management & group travel solutions",
+      link: "/services/cruise-booking",
+    }
+  ].map((service, index) => (
+    <Link
+      to={service.link}
+      key={index}
+      className="group bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-transparent hover:border-indigo-100 block"
+    >
+      <div className="text-4xl mb-4">{service.icon}</div>
+      <h3 className="text-xl font-semibold text-indigo-600 mb-3">
+        {service.title}
+      </h3>
+      <p className="text-gray-600 text-sm">
+        {service.desc}
+      </p>
+    </Link>
+  ))}
+</div>
     </Layout>
   );
 };
