@@ -9,7 +9,7 @@
         "destination": ["Srinagar", "Pahalgam", "Gulmarg", "Sonamarg","Srinagar"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Airfare/Train tickets",
             "Personal expenses (laundry, tips, alcohol)",
@@ -24,7 +24,7 @@
             "Early check-in/late check-out subject to availability",
             "Meals only included where specified"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Jammu - Pahalgam: Arrival at Jammu, transfer to Pahalgam via Patnitop with 2-3 hours sightseeing. Check-in hotel, dinner, and overnight stay.",
           "day_2": "Pahalgam - Srinagar: Visit Awantipora temples, Mattan Shiva temple, Eshumukam Cave. Activities in Pahalgam, transfer to Srinagar houseboat.",
@@ -44,7 +44,7 @@
         "destination": ["Shimla", "Manali", "Dalhousie", "Dharamshala", "Chandigarh City"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Monument entrance/camera fees",
             "Personal expenses (laundry, shopping, tips)",
@@ -61,7 +61,7 @@
             "Hotel rooms subject to availability",
             "Luggage responsibility remains with client"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Shimla - Kufri: Arrival at Shimla, check-in hotel, breakfast, and overnight stay.",
           "day_2": "Shimla - Kufri: Temple visits, Christ Church, Kufri valley exploration",
@@ -88,7 +88,7 @@
         ],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Jungle safari costs",
             "Meals not specified",
@@ -104,7 +104,7 @@
             "Cancellation charges vary",
             "Safari availability dependent"
           ]
-        },
+        ,
         "itinerary": {
           "day_2": "Mussoorie: City tour and waterfall visit",
           "day_3": "Transfer to Corbett National Park",
@@ -122,7 +122,7 @@
         "destination": ["Munnar", "Thekkady", "Kumarakom", "Alleppey", "Kochi"],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Air/rail transportation",
             "Personal expenses",
@@ -137,7 +137,7 @@
             "Alternative hotels possible",
             "Room category impacts cost"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Cochin Arrival: Waterfall visits",
           "day_2": "Munnar transfer with scenic stops",
@@ -160,7 +160,7 @@
         ],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Government service tax (3.09%)",
             "Air/rail transportation",
@@ -176,7 +176,7 @@
             "Hotel availability pricing",
             "Early/late checkout policies"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Darjeeling: Hill station exploration",
           "day_2": "Gangtok: Lake excursion",
@@ -198,7 +198,7 @@
         ],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Meals other than specified",
             "Airfare/Transport costs",
@@ -213,7 +213,7 @@
             "Transport paid upfront",
             "Meal plan options available"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Coimbatore - Ooty: Transfer with sightseeing",
           "day_2": "Ooty Exploration: Tea gardens and viewpoints",
@@ -238,7 +238,7 @@
         ],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Government service tax (3.09%)",
             "Air/rail transportation",
@@ -254,7 +254,7 @@
             "Unforeseen costs payable on arrival",
             "Itinerary weather dependencies"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Gangtok: Arrival with sightseeing",
           "day_2": "Kalimpong - Gangtok transfer with sightseeing",
@@ -279,7 +279,7 @@
         ],
         "tour_activities": ["Heritage"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Air/rail transportation",
             "Personal expenses",
@@ -292,7 +292,7 @@
             "Alternative hotel options",
             "Service tax applicable"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Hyderabad Arrival: Golconda Fort light show",
           "day_2": "Film City & Buddha statue visit",
@@ -316,7 +316,7 @@
         ],
         "tour_activities": ["Heritage"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Airfare/train fare",
             "Personal expenses (tips, beverages, laundry)",
@@ -329,7 +329,7 @@
             "Hotel availability determines pricing",
             "Service tax applicable on final amount"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Thane/Pune to Amboli transfer",
           "day_2": "Amboli sightseeing",
@@ -350,7 +350,7 @@
         ],
         "tour_activities": ["Lakes & Rivers"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Airfare/train fare",
             "Personal expenses",
@@ -363,7 +363,7 @@
             "Hotel availability pricing",
             "Service tax included"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Pune to Amba Ghat transfer",
           "day_3": "Marleshwar temple and Ganpatipule",
@@ -383,7 +383,7 @@
         ],
         "tour_activities": ["Hill Stations & Valleys"],
         "price": "INR 8,980 per adult",
-        "overview": {
+        
           "exclusions": [
             "Transportation from Pune",
             "Meals beyond breakfast",
@@ -396,7 +396,7 @@
             "Hotel Savoy Village stay",
             "Refund retention policies"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Pune to Mahabaleshwar transfer & sightseeing",
           "day_2": "Panchgani valley exploration",
@@ -417,7 +417,7 @@
         ],
         "tour_activities": ["Wildlife", "Religious & Pilgrimage"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Meals beyond specified",
             "Entrance fees",
@@ -430,7 +430,7 @@
             "3.09% service tax",
             "Safari availability dependent"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Delhi to Haridwar transfer",
           "day_3": "Mussoorie waterfalls and markets",
@@ -455,7 +455,7 @@
         ],
         "tour_activities": ["Beaches and Islands", "Water Sports", "Wildlife"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "Visa fees",
             "International airfare",
@@ -468,7 +468,7 @@
             "Guided tours included",
             "Refund retention policies"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Phuket arrival and city tour",
           "day_2": "Phi Phi Island cruise",
@@ -492,7 +492,7 @@
         ],
         "tour_activities": ["Beaches and Islands", "Water Sports", "Adventure Sports"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "International airfare",
             "Visa fees",
@@ -505,7 +505,7 @@
             "Cable car access",
             "Flexible exploration days"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Arrival with night safari",
           "day_2": "Cultural city tour",
@@ -525,7 +525,7 @@
         ],
         "tour_activities": ["Water Sports", "Desert Safari", "Adventure Sports"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "International airfare",
             "Visa fees",
@@ -538,7 +538,7 @@
             "Theme park entries covered",
             "Flexible cancellation policies"
           ]
-        },
+        ,
         "itinerary": {
           "day_1": "Arrival and leisure",
           "day_2": "Yas Water Park & Ferrari World",
@@ -560,7 +560,7 @@
         ],
         "tour_activities": ["Beaches and Islands", "Ship & Cruise", "Adventure Sports"],
         "price": "On Request",
-        "overview": {
+        
           "exclusions": [
             "International airfare",
             "Premium cruise upgrades",
@@ -572,8 +572,8 @@
             "Cruise cabin allocations",
             "Universal Studio fast passes",
             "Flexible disembarkation options"
-          ]
-        },
+          ],
+        
         "itinerary": {
           "day_1": "Arrival with night safari",
           "day_2": "Cultural landmarks & Sentosa tour",
