@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Layout } from '../layout/Layout';
 import DatePicker from 'react-datepicker';
+import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GlobeAltIcon, CalendarIcon, UserIcon, TicketIcon, UserGroupIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
@@ -63,7 +64,7 @@ export const CruiseBooking = () => {
     };
 
     try {
-      await axios.post(" https://backend-nine-mauve-86.vercel.app/cruise_booking", templateParams);
+      await axios.post("https://backend-nine-mauve-86.vercel.app/cruise_booking", templateParams);
       alert("Enquiry submitted successfully!");
       
     } catch (error) {

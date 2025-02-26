@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Layout } from '../layout/Layout';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GlobeAltIcon, CalendarIcon, UserIcon, HomeIcon, PhoneIcon, CurrencyDollarIcon, EnvelopeIcon, UserGroupIcon } from '@heroicons/react/24/outline';
@@ -65,11 +66,11 @@ export const HotelBooking = () => {
     };
 
     try {
-      await axios.post(" https://backend-nine-mauve-86.vercel.app/hotel_booking", templateParams);
+      await axios.post("https://backend-nine-mauve-86.vercel.app/hotel_booking", templateParams);
       alert("Enquiry submitted successfully!");
       
     } catch (error) {
-      alert("Failed to submit enquiry. Please try again.");
+      alert("Failed to submit enquiry. Please try again." );
     }
   };
 
