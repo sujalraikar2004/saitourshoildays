@@ -32,7 +32,7 @@ function App() {
           <Route path="/event-organizer" element={<EventOrganizer />} />
           <Route path="/travel-insurance" element={<TravelInsurance />} />
           <Route path="/domastic_tour" element={<DomasticTour />} />
-          <Route path="/international_tour" element={<DomasticTour />} />
+          <Route path="/international_tour" element={<International />} />
           <Route path="/detail/:packageId"   element={<TourDetail/>}/>
         </Routes>
       </BrowserRouter>
