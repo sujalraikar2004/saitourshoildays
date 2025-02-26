@@ -56,7 +56,7 @@ export const Home = () => {
   const services = [
     {
       title: 'Luxury Car Rentals',
-      image: '/brock-wegner-pWGUMQSWBwI-unsplash.jpg',
+      image: '/Adobe Express - file(1).jpg',
       desc: 'Premium vehicles with chauffeur services',
       link: '/car-rental'
     },
@@ -74,7 +74,7 @@ export const Home = () => {
     },
     {
       title: 'Tour Packages',
-      image: '/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg',
+      image: '/Adobe Express - file(12).jpg',
       desc: 'Customized travel itineraries',
       link: '/tour-packages'
     }
@@ -182,7 +182,7 @@ export const Home = () => {
           {[
             '/shifaaz-shamoon-qtbV_8P_Ksk-unsplash.jpg',
             '/samuel-scrimshaw-x8zEeH7euQI-unsplash.jpg',
-            '/sylwia-bartyzel-eU4pipU_8HA-unsplash.jpg',
+            '/Adobe Express - file(12).jpg',
            
           ].map((img, index) => (
             <SwiperSlide key={index}>
@@ -199,7 +199,7 @@ export const Home = () => {
                     Explore Incredible India
                   </h1>
                   <p className="text-lg md:text-xl text-gray-200 animate-float delay-100">
-                    {['Mountain Treks', 'Cultural Heritage', 'Beach Paradises'][index]}
+                    {['Beach Paradises','Mountain Treks', 'Cultural Heritage', ][index]}
                   </p>
                 </div>
               </div>
