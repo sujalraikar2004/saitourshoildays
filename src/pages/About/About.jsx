@@ -89,7 +89,7 @@ export  function About() {
 >
   Our Services
 </h2>
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-1 " >
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16   " >
   {[
     {
       title: "Airline Ticketing",
