@@ -10,8 +10,6 @@ import { CruiseBooking } from './pages/Services/CruiseBooking.jsx'
 import { AirlineTicketing } from './pages/Services/AirlineTicketing'
 import { HotelBooking } from './pages/Services/HotelBooking'
 import { CarRental } from './pages/Services/CarRental'
-import { EventOrganizer } from './pages/Services/EventOrganizer'
-import { TravelInsurance } from './pages/Services/TravelInsurance'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import TourDetail from './pages/TourDetail/TourDetail.jsx'
 import DomasticTour from './pages/TourByDestination/DomasticTour.jsx'
@@ -28,9 +26,7 @@ function App() {
           <Route path="/tour-operators" element={<CruiseBooking />} />
           <Route path="/airline-ticketing" element={<AirlineTicketing />} />
           <Route path="/hotel-booking" element={<HotelBooking />} />
-          <Route path="/car-rental" element={<CarRental />} />
-          <Route path="/event-organizer" element={<EventOrganizer />} />
-          <Route path="/travel-insurance" element={<TravelInsurance />} />
+          <Route path="/car-rental" element={<CarRental />} />          
           <Route path="/domastic_tour" element={<DomasticTour />} />
           <Route path="/international_tour" element={<International />} />
           <Route path="/detail/:packageId"   element={<TourDetail/>}/>
