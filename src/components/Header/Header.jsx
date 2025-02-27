@@ -12,7 +12,7 @@ export const Header = () => {
     <header className="header-nav-container">
       <nav className='navbar '>
         <div>
-        <img src="/sai tours logo crop.jpg" alt="" className='w-25 h-12 md:h-15 ' />
+        <img src="/favicon.png" alt="" className='w-25 h-12 md:h-15 ' />
         </div>
         
         <ul className="nav-links md:flex md:gap-2 lg:flex lg:gap-8" >
