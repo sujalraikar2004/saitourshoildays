@@ -104,7 +104,7 @@ export const Header = () => {
             <li className="nav-dropdown">
             <span className="nav-link">TourByDestination▼</span>
             <ul className="dropdown-menu">
-              <li><NavLink to="/domastic_tour" className="dropdown-link">Domastic</NavLink></li>
+              <li><NavLink to="/domastic_tour" className="dropdown-link">Domestic</NavLink></li>
               <li><NavLink to="/international_tour" className="dropdown-link">International</NavLink></li>
 
             </ul>

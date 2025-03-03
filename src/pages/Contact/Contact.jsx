@@ -49,7 +49,7 @@ export const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-800">Contact Person</p>
-                        <p className="text-gray-600">Mr. Gurudas revankar </p>
+                        <p className="text-gray-600">Mr. Gurudas Revankar </p>
                       </div>
                     </div>
 
