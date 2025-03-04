@@ -85,7 +85,7 @@ export  function About() {
         {/* Services Section */}
        
         <h2 
-  className="text-3xl font-bold text-gray-800 mb-8  translate-y-8 transition-all duration-500 delay-300"
+  className="text-4xl font-bold text-gray-800 mb-8 text-center translate-y-8 transition-all duration-500 delay-300"
 >
   Our Services
 </h2>
@@ -147,9 +147,11 @@ export  function About() {
 
         {/* CTA Section */}
         <div className="text-center py-12">
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105">
-            Start Your Journey
-          </button>
+          <Link to="/tour-packages">
+            <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105">
+              Start Your Journey
+            </button>
+          </Link>
         </div>
       </div>
     </div></Layout>

@@ -80,7 +80,7 @@ const TourPackages = () => {
       <div className="max-w-6xl mx-auto px-4 py-6">
       
       
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Tour Packages</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Tour Packages</h2>
         <div className="bg-gray-100 p-4 rounded-lg mb-6 flex flex-col md:flex-row gap-4">
           <input
             type="text"
