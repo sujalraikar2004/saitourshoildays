@@ -113,9 +113,7 @@ export const Footer = () => {
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Sai Tours . All rights reserved
           </p>
-          <p className="text-xs text-gray-600 mt-2">
-            Registered with Ministry of Tourism, Government of India
-          </p>
+          
         </div>
       </div>
       <div
